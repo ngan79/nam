@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎂 Quà Sinh Nhật cho Cún 🐾</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to top, #fddde6, #fef6e4);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #lockScreen {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #fff7f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    #questionScreen, #mainContent { display: none; }
+    h1 { font-size: 2rem; color: #ff5e78; text-align: center; }
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #ff6f61;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .animal {
+      position: absolute;
+      width: 80px;
+      animation: moveAnimal 12s linear infinite;
+    }
+    @keyframes moveAnimal {
+      0% { transform: translateX(-100px); }
+      100% { transform: translateX(110vw); }
+    }
+    .cloud, .sun, .car, .flower {
+      position: absolute;
+      animation: float 30s linear infinite;
+    }
+    .cloud { top: 10%; left: 0; width: 100px; }
+    .sun { top: 5%; right: 10%; width: 80px; animation: rotate 20s linear infinite; }
+    .car { bottom: 0; left: -120px; width: 150px; animation: drive 20s linear infinite; }
+    .flower {
+      bottom: 10px;
+      width: 50px;
+      animation: sway 3s ease-in-out infinite alternate;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes drive {
+      0% { transform: translateX(-200px); }
+      100% { transform: translateX(120vw); }
+    }
+    @keyframes float {
+      from { left: -100px; }
+      to { left: 110vw; }
+    }
+    @keyframes sway {
+      from { transform: rotate(-5deg); }
+      to { transform: rotate(5deg); }
+    }
+    #message {
+      display: none;
+      max-width: 600px;
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      white-space: pre-wrap;
+      text-align: left;
+    }
+  </style>
+</head>
+<body onload="document.getElementById('lockScreen').style.display = 'flex'">
+  <div id="lockScreen">
+    <h1>🔐 Nhập mật khẩu để mở thiệp</h1>
+    <input type="password" id="password" placeholder="Mật khẩu là gì nhỉ?">
+    <button onclick="checkPassword()">Mở quà 🎁</button>
+  </div>
+
+  <div id="questionScreen">
+    <h1>🐾 Trả lời nhanh nè: "Em bé tên gì nhỉ?"</h1>
+    <input type="text" id="answer" placeholder="Gợi ý: dễ thương 🍓">
+    <button onclick="checkAnswer()">Trả lời 💬</button>
+  </div>
+
+  <div id="mainContent">
+    <img src="https://media.giphy.com/media/xThtaaV0F6G8jD1w4E/giphy.gif" class="cloud">
+    <img src="https://media.giphy.com/media/2A75RyXVzzSI2bx4Gj/giphy.gif" class="sun">
+    <img src="https://media.giphy.com/media/nNxT5qXR02FOM/giphy.gif" class="car">
+    <img src="https://media.giphy.com/media/fAnEC88LccN7a/giphy.gif" class="flower" style="left: 10%">
+    <img src="https://media.giphy.com/media/1d5s9yKFlNqoZoGytA/giphy.gif" class="animal" style="bottom: 30%">
+    <img src="https://media.giphy.com/media/jpbnoe3UIa8TU8LM13/giphy.gif" class="animal" style="bottom: 45%">
+
+    <h1>🎉 Chúc mừng sinh nhật, bé Cún! 🐶</h1>
+    <button onclick="playMusic()">Bật nhạc 🎵</button>
+    <button onclick="showMessage()">Mở thư 💌</button>
+
+    <div id="message">
+00:00 – Đúng giờ sinh nhật một cậu nhóc hay nói là ổn, nhưng lại giấu cảm xúc như chuyên gia 🎯
+
+Sinh nhật vui vẻ nha, Cúnnnnn.
+Tuổi mới, chị không chúc Cún may mắn – vì may mắn đến rồi cũng đi.
+Chị chúc Cún đủ dũng cảm để không trốn tránh bản thân, đủ tỉnh để chọn đúng điều cần giữ, và đủ ấm để không đóng cửa trái tim dù có chuyện gì.
+
+Cún không cần giỏi hơn người khác, chỉ cần mỗi ngày một chút, giỏi hơn chính mình hôm qua là đủ rồi.
+Còn nếu hôm nào đó Nam mệt, lười lớn, muốn “bỏ cuộc một buổi” thì… không sao, về đây. Có người giữ hộ cái vai mạnh mẽ một lúc cho.
+
+Cuối cùng – đừng quên sống cho mình. Bé không sinh ra để làm ai hài lòng cả.
+
+Happy Birthday, bé Cún của chị 🐾
+    </div>
+
+    <audio id="bgMusic" loop>
+      <source src="https://res.cloudinary.com/dt2b2ahps/video/upload/v1720420652/angelbaby.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const pass = document.getElementById("password").value;
+      if (pass.toLowerCase() === "moah") {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("questionScreen").style.display = "flex";
+      } else {
+        alert("Sai mật khẩu òi, thử lại nha 😜");
+      }
+    }
+    function checkAnswer() {
+      const ans = document.getElementById("answer").value;
+      if (ans.toLowerCase().includes("nam")) {
+        document.getElementById("questionScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "flex";
+        document.body.style.overflow = 'visible';
+      } else {
+        alert("Sai mất tiu rồi 😅 Thử gõ lại xem");
+      }
+    }
+    function playMusic() {
+      document.getElementById("bgMusic").play();
+    }
+    function showMessage() {
+      document.getElementById("message").style.display = "block";
+    }
+  </script>
+</body>
+</html>
